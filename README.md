@@ -2,6 +2,8 @@
 
 embedding-drift-watch is a standard-library-only Python CLI that fingerprints the distribution of an embedding set — per-dimension mean, spread, and bucketed histograms plus mean vector norm — and alerts when a new batch drifts past a threshold. Use it when you serve embeddings in production and want a cheap, explainable early warning before retrieval quality quietly rots.
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Embedding models and their upstream pipelines change: you swap a model version, a chunking setting shifts, a tokenizer update lands, or an upstream source starts flooding one topic. None of these failures throw errors — retrieval quality silently degrades while every health check stays green. Teams usually notice only when users complain. What is missing is a tiny, dependency-free gate that answers one question per batch: *does today's embedding distribution still look like the distribution I built my index around?*
